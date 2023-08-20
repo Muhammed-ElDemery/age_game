@@ -15,6 +15,9 @@ gameButton.forEach(function (e) {
         sectionOfAdrress.classList.toggle("active")
         spin.classList.toggle("active")
         backButton.classList.toggle("active")
+        setTimeout(() => {
+            spin.style.display = "none"
+        }, 1000);
         if (e.className === ageGame.className.split(" ")[0]) {
             ageGame.classList.toggle("active")
         }
@@ -23,6 +26,9 @@ gameButton.forEach(function (e) {
 backButton.onclick = function () {
     sectionOfAdrress.classList.toggle("active")
     spin.classList.toggle("active")
+    setTimeout(() => {
+        spin.style.display = "flex"
+    },100);
     backButton.classList.toggle("active")
     ageGame.classList.remove("active")
     infoAge.classList.remove("active")

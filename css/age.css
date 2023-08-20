@@ -48,7 +48,7 @@ section {
     height: 30vh;
 }
 section.active {
-    transform: translateY(-200%);
+    transform: translateY(-250%);
 }
 section h1 {
     font-size: 80px;
@@ -121,6 +121,7 @@ section div h3:hover::before {
 }
 .container.active {
     transform: translateY(-185%);
+    opacity: 0;
 }
 .container .loader {
     animation: spin 2s linear infinite;
