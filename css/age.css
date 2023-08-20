@@ -1,0 +1,299 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    transition: var(--mainTrans);
+}
+:root {
+    --mainColor:rgb(95, 3, 57);
+    --mainTrans: 0.8s ease;
+    --secFont : 'Bahianita', cursive;
+}
+body {
+    background-image:linear-gradient( rgba(0, 0, 0, 0.95) ,rgba(0, 0, 0, 0.9) ,rgba(0, 0, 0, 0.95));
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+h4 {
+    color: white;
+    background: orange;
+    padding: 10px 20px;
+    border-radius: 30px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    opacity: 0;
+    cursor: pointer;
+}
+h4:hover {
+    background-color: black;
+    color: white;
+}
+h4.active {
+    opacity: 1;
+}
+section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    height: 30vh;
+}
+section.active {
+    transform: translateY(-200%);
+}
+section h1 {
+    font-size: 80px;
+    color: white;
+    font-family: var(--secFont);
+}
+section div:nth-child(2) {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+}
+section div h3 {
+    background: var(--mainColor);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+section div h3:hover {
+    background-color: transparent;
+    color: var(--mainColor);
+}
+section div h3::After , section div h3::before{
+    content: '';
+    position:absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: var(--mainColor);
+    top: calc(50% - 4px);
+    transition: var(--mainTrans);
+    z-index: -1;
+    transform: skew(-70deg, 0deg);
+}
+section div h3::before {
+    left: -25px;
+}
+section div h3::After {
+    right: -25px;
+}
+section div h3:hover::After , section div h3:hover::before {
+    width: 50%;
+    height: 100%;
+    top: 0;
+    border-radius: 30px;
+    background-color: white;
+    transform: none;
+}
+section div h3:hover::After {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    right: 0;
+}
+section div h3:hover::before {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    left: 0;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    -webkit-box-reflect: below 0 linear-gradient(transparent , transparent, transparent, #0005);
+    border-radius: 100%;
+}
+.container.active {
+    transform: translateY(-185%);
+}
+.container .loader {
+    animation: spin 2s linear infinite;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .loader::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(to top , transparent 20%, #59e4fd);
+    top: 0;
+    left: 0;
+    border-top-left-radius: 100%;
+}
+.container .loader::before {
+    content: '';
+    position: absolute;
+    width: 15%;
+    height: 15%;
+    border-radius: 100%;
+    background-color: #01a8c5;
+    box-shadow: 0 0 10px #01a8c5,
+    0 0 20px #01a8c5,
+    0 0 30px #01a8c5,
+    0 0 40px #01a8c5,
+    0 0 50px #01a8c5,
+    0 0 60px #01a8c5,
+    0 0 70px #01a8c5,
+    0 0 80px #01a8c5;
+    top: 0;
+    left: 40%;
+    z-index: 4;
+}
+.container .loader span {
+    display: block;
+    width: 70%;
+    height: 70%;
+    border-radius: 100%;
+    background-color: black;
+    position: absolute;
+    z-index: 3;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/*########################################*/
+.ageGame {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    bottom: -100%;
+    position: absolute;
+}
+.ageGame.active {
+    bottom: 0%;
+}
+.ageGame .box {
+    padding: 20px;
+    background: white;
+    width: 80%;
+    display: flex;
+    border-radius: 15px;
+}
+.ageGame .box input {
+    border: none;
+    background: orange;
+    color: black;
+    padding: 15px 50px;
+    width: 80%;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 25px;
+    font-weight: bold;
+}
+.ageGame .box input::placeholder {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+.ageGame .box button {
+    width: 15%;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    background: #35a0b1;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.ageGame .box button:hover {
+    color: black;
+    background-color: white;
+}
+.ageGame .info {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    opacity: 0;
+}
+.ageGame .info.active {
+    opacity: 100%;
+}
+.ageGame .info div {
+    display: flex;
+    margin: 5px 0;
+    background: #5f0339;
+    padding: 10px;
+    border-radius: 5px;
+    align-items: center;
+    width: 100%;
+}
+.ageGame .info div h5 {
+    margin-right: 30px;
+}
+.ageGame .info h2 {
+    align-self: center;
+}
+.ageGame .reset {
+    background: orange;
+    padding: 10px;
+    font-size: 16px;
+    letter-spacing: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.ageGame .reset:hover {
+    background-color: black;
+    color: orange;
+}
+@media (max-width : 480px) {
+    section h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    section div:nth-child(2) {
+        text-align: center;
+    }
+    h4 {
+        top: 5px;
+        left: 5px;
+    }
+    .ageGame {
+        width: 100%;
+    }
+    .ageGame .box {
+        padding: 8px;
+    }
+    .ageGame .box input {
+        margin-right: 10px;
+        padding: 15px 10px;
+    }
+    .ageGame .box button {
+        width: 35%;
+    }
+    .ageGame .box input::placeholder {
+        font-size: 10px;
+    }
+}
